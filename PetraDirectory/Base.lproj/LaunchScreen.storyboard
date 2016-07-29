@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LOGO-PETRA1" translatesAutoresizingMaskIntoConstraints="NO" id="Ec4-MH-fAv">
+                                <rect key="frame" x="180" y="86" width="240" height="240"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="w2u-4h-mgQ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Petra Directory" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Su-so-NZC">
+                                <rect key="frame" x="20" y="379" width="560" height="76"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="50"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6Su-so-NZC" firstAttribute="top" secondItem="Ec4-MH-fAv" secondAttribute="bottom" constant="53" id="GJ1-e8-T6u"/>
+                            <constraint firstItem="6Su-so-NZC" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="JWi-TR-6J9"/>
+                            <constraint firstItem="6Su-so-NZC" firstAttribute="centerX" secondItem="Ec4-MH-fAv" secondAttribute="centerX" id="Qjj-ze-5K0"/>
+                            <constraint firstItem="Ec4-MH-fAv" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Zkm-3a-Qkg"/>
+                            <constraint firstItem="Ec4-MH-fAv" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="66" id="Zx5-Zc-Tkr"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="6Su-so-NZC" secondAttribute="bottom" constant="145" id="wgk-mq-VrS"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Ec4-MH-fAv" secondAttribute="bottom" constant="274" id="zG2-Ip-cgT"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="262" y="359"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LOGO-PETRA1" width="1885" height="1885"/>
+    </resources>
+</document>
