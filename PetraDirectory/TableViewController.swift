@@ -37,18 +37,18 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
 //        self.tableView.dataSource = self
         self.tableView.tableHeaderView = self.searchResult.searchBar
         //dibawah ini untuk hide searchbar di awal, jumlah elemen array harus lebih dari 1 layar!
-        self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: false)
+        self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: false)
         self.tableView.reloadData()
     }
 
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if self.searchResult.active {
+        if self.searchResult.isActive {
             return self.filteredRealName.count
         } else {
             return userName.count
@@ -56,26 +56,26 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "myCell";
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TableViewCell
         // Configure the cell...
-        if self.searchResult.active {
-            cell.userName.text = self.userName[indexPath.row]
-            cell.realName.text = self.filteredRealName[indexPath.row]
-            cell.otherInfo.text = self.otherInfo[indexPath.row]
+        if self.searchResult.isActive {
+            cell.userName.text = self.userName[(indexPath as NSIndexPath).row]
+            cell.realName.text = self.filteredRealName[(indexPath as NSIndexPath).row]
+            cell.otherInfo.text = self.otherInfo[(indexPath as NSIndexPath).row]
         } else {
-            cell.userName.text = self.userName[indexPath.row]
-            cell.realName.text = self.realName[indexPath.row]
-            cell.otherInfo.text = self.otherInfo[indexPath.row]
+            cell.userName.text = self.userName[(indexPath as NSIndexPath).row]
+            cell.realName.text = self.realName[(indexPath as NSIndexPath).row]
+            cell.otherInfo.text = self.otherInfo[(indexPath as NSIndexPath).row]
         }
         return cell
     }
     
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        self.filteredRealName.removeAll(keepCapacity: false)
+    func updateSearchResults(for searchController: UISearchController) {
+        self.filteredRealName.removeAll(keepingCapacity: false)
         let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
-        let array = (self.realName as NSArray).filteredArrayUsingPredicate(searchPredicate)
+        let array = (self.realName as NSArray).filtered(using: searchPredicate)
         self.filteredRealName = array as! [String]
         self.tableView.reloadData()
     }
